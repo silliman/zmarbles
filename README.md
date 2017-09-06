@@ -4,15 +4,26 @@
 
 The contents of either of these two compressed tar files should work with Hyperledger Fabric v1.0.0, v1.0.1 or v1.0.2 on IBM Z: 
 
-* zmarbles.tar.gz  # `tar -xzvf zmarbles.tar.gz` to extract it in the directory of your choice
+## Installation 
 
-* zmarblesNPM.tar.gz  # `tar -xzvf zmarblesNPM.tar.gz` to extract it in the directory of your choice. If you do not have access to npm this tarball contains the node_modules directory inside of zmarbles/marblesUI directory, that is, the 'npm install' has been done for you.  This file is recommended only if your system has restrictions that prevent the npm install command from running successfully. 
+1. `cd $HOME` # move to your home directory
 
-Use one of the two tarballs-   **zmarbles.tar.gz** is preferred but see the notes above.
+2. `git clone https://github.com/silliman/zmarbles.git`
 
-One way to use the artifacts provided here are with the step-by-step lab available soon.
+3. `cd zmarbles`
 
-Another way is to simply change directory to the zmarbles directory that will be created when you extract one of the two provided compressed tarballs and then run `./zmarbles-setup.sh`.  Running this command with no arguments will display some brief help.
+4. Use one of the two compressed tar files and run the *tar* command shown for the one you choose. Make sure to use the --strip-components=1 argument as shown.  **zmarbles.tar.gz** is preferred but see the notes below.
+
+
+**zmarbles.tar.gz**  - `tar --strip-components=1 -xzvf zmarbles.tar.gz` to extract it in your *$HOME/zmarbles* directory.
+
+**zmarblesNPM.tar.gz**  - `tar --strip-components=1 -xzvf zmarblesNPM.tar.gz` to extract it in *$HOME/zmarbles* directory. If you do not have access to npm this tarball contains the node_modules directory inside of the zmarbles/marblesUI directory, that is, the 'npm install' has been done for you.  This file is recommended only if your system has restrictions that prevent the npm install command from running successfully. 
+
+## Running the application
+
+One way to use the artifacts provided here is with the step-by-step lab available soon.
+
+Another way is to simply run `./zmarbles-setup.sh` from within your *$HOME/zmarbles* directory.  Running this command with no arguments will display some brief help.
 
 There are four positional arguments to the `./zmarbles-setup.sh` script.  The first argument is required and should be either `up` or `down` or `restart`.  This is to indicate what action you want to take against the zmarbles app (and the underlying Hyperledger Fabric network infrastructure that supports it).  **up** and **down** are self-explanatory and **restart** will attempt to bring down the network and reset things before bringing the network back up again.  
 
