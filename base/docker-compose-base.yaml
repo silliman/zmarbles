@@ -1,0 +1,115 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+  orderer.blockchain.com:
+    container_name: orderer.blockchain.com
+    image: hyperledger/fabric-orderer
+    environment:
+      #- ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+    - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../crypto-config/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/tls/:/var/hyperledger/orderer/tls
+    ports:
+      - 7050:7050
+
+  peer0.unitedmarbles.com:
+    container_name: peer0.unitedmarbles.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.unitedmarbles.com
+      - CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.unitedmarbles.com:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.unitedmarbles.com:7051
+      - CORE_PEER_LOCALMSPID=Org0MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053
+
+  peer1.unitedmarbles.com:
+    container_name: peer1.unitedmarbles.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.unitedmarbles.com
+      - CORE_PEER_ADDRESS=peer1.unitedmarbles.com:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer1.unitedmarbles.com:7052
+      #- CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.unitedmarbles.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.unitedmarbles.com:7051
+      - CORE_PEER_LOCALMSPID=Org0MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer1.unitedmarbles.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer1.unitedmarbles.com/tls:/etc/hyperledger/fabric/tls
+
+    ports:
+      - 8051:7051
+      - 8052:7052
+      - 8053:7053
+
+  peer0.marblesinc.com:
+    container_name: peer0.marblesinc.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.marblesinc.com
+      - CORE_PEER_ADDRESS=peer0.marblesinc.com:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.marblesinc.com:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.marblesinc.com:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 9051:7051
+      - 9052:7052
+      - 9053:7053
+
+  peer1.marblesinc.com:
+    container_name: peer1.marblesinc.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.marblesinc.com
+      - CORE_PEER_ADDRESS=peer1.marblesinc.com:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer1.marblesinc.com:7052
+      #- CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.marblesinc.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.marblesinc.com:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 10051:7051
+      - 10052:7052
+      - 10053:7053

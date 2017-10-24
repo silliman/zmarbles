@@ -1,0 +1,39 @@
+if [ -z $1 ] || [ -z $2 ] || (( $1 > 1 )) || (( $2 > 1 )); then
+  echo "Error: Please specify org number [0-1] and then peer number [0-1]"
+  echo "Example: setpeer 0 1   ----> org0 and peer1"
+  echo ""
+  return 1
+fi
+
+FACTOR=0
+if [ $1 = 1  ]; then
+  FACTOR=2
+fi
+
+PEER_DIR=$(($FACTOR+$2))
+
+
+if [ $PEER_DIR -eq 0 -o $PEER_DIR -eq 1 ] ; then
+        export CORE_PEER_LOCALMSPID="Org0MSP"
+        export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
+        if [ $PEER_DIR -eq 0 ]; then
+                export CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
+                export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
+        else
+                export CORE_PEER_ADDRESS=peer1.unitedmarbles.com:7051
+                export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer1.unitedmarbles.com/tls/ca.crt
+        fi
+else
+        export CORE_PEER_LOCALMSPID="Org1MSP"
+        export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
+        if [ $PEER_DIR -eq 2 ]; then
+                export CORE_PEER_ADDRESS=peer0.marblesinc.com:7051
+                export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt
+        else
+                export CORE_PEER_ADDRESS=peer1.marblesinc.com:7051
+                export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls/ca.crt
+        fi
+fi
+
+env |grep CORE
+

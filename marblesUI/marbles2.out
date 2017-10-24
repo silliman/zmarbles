@@ -1,0 +1,284 @@
+[14:30:58] Using gulpfile ~/zmarbles/marblesUI/gulpfile.js
+[14:30:58] Starting 'start_marbles2'...
+
+[International Marbles Trading Consortium] 2
+
+[14:30:58] Finished 'start_marbles2' after 71 μs
+[14:30:58] Starting 'build-sass'...
+[14:30:58] Finished 'build-sass' after 16 ms
+[14:30:58] Starting 'watch-sass'...
+[14:30:58] Finished 'watch-sass' after 9.16 ms
+[14:30:58] Starting 'watch-server'...
+[14:30:58] Finished 'watch-server' after 4.5 ms
+[14:30:58] Starting 'server'...
+[32minfo[39m: Loaded config file /home/bcuser/zmarbles/marblesUI/config/marbles2.json
+[32minfo[39m: Loaded creds file /home/bcuser/zmarbles/marblesUI/config/blockchain_creds2.json
+[32minfo[39m: Returning a new winston logger with default configurations
+[32minfo[39m: Loaded config file /home/bcuser/zmarbles/marblesUI/config/marbles2.json
+[32minfo[39m: Loaded creds file /home/bcuser/zmarbles/marblesUI/config/blockchain_creds2.json
+[34mdebug[39m: cache busting hash js 1508869859401 css 1508869859401
+------------------------------------------ Server Up - localhost:3002 ------------------------------------------
+------------------------------------------ Websocket Up ------------------------------------------
+[33mwarn[39m: "last_startup_hash" not found in config json: /home/bcuser/zmarbles/marblesUI/config/marbles2.json
+
+[34mdebug[39m: Detected that we have NOT launched successfully yet
+[34mdebug[39m: Open your browser to http://localhost:3002 and login as "admin" to initiate startup
+
+
+[34mdebug[39m: ------------------------------------------ incoming request ------------------------------------------
+[34mdebug[39m: New GET request for /
+[34mdebug[39m: ------------------------------------------ incoming request ------------------------------------------
+[34mdebug[39m: New GET request for /home
+[34mdebug[39m: ------------------------------------------ incoming request ------------------------------------------
+[34mdebug[39m: New GET request for /login
+Loaded config file /home/bcuser/zmarbles/marblesUI/config/marbles2.json
+Loaded creds file /home/bcuser/zmarbles/marblesUI/config/blockchain_creds2.json
+[34mdebug[39m: ------------------------------------------ incoming request ------------------------------------------
+[34mdebug[39m: New POST request for /login
+[34mdebug[39m: ------------------------------------------ incoming request ------------------------------------------
+[34mdebug[39m: New GET request for /home
+Loaded config file /home/bcuser/zmarbles/marblesUI/config/marbles2.json
+Loaded creds file /home/bcuser/zmarbles/marblesUI/config/blockchain_creds2.json
+ 
+-------------------------------- Incoming WS Msg --------------------------------
+[34mdebug[39m: [ws] received ws msg: {"type":"setup","configure":"enrollment"}
+[34mdebug[39m: [ws] setup message type=setup, configure=enrollment
+[32minfo[39m: [fcw] Going to enroll for mspId  peer_urls=[grpcs://localhost:9051], channel_id=aida, uuid=marbles--aida-peer0.marblesinc.com, ca_url=https://localhost:8054, orderer_url=grpcs://localhost:7050, enroll_id=admin2, enroll_secret=adminpw2, msp_id=Org1MSP
+[32minfo[39m: [Client.js]: Failed to load user "admin2" from local key value store
+[32minfo[39m: [FabricCAClientImpl.js]: Successfully constructed Fabric CA client from options - %j protocol=https, hostname=localhost, port=8054, trustedRoots=[-----BEGIN CERTIFICATE-----
+MIICOzCCAeKgAwIBAgIRAO8XspqnQDy0Iwlj+zYrkJ0wCgYIKoZIzj0EAwIwbzEL
+MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+cmFuY2lzY28xFzAVBgNVBAoTDm1hcmJsZXNpbmMuY29tMRowGAYDVQQDExFjYS5t
+YXJibGVzaW5jLmNvbTAeFw0xNzEwMjQxODE5NTdaFw0yNzEwMjIxODE5NTdaMG8x
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRcwFQYDVQQKEw5tYXJibGVzaW5jLmNvbTEaMBgGA1UEAxMRY2Eu
+bWFyYmxlc2luYy5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAR61xagailK
+4HxotbBx4dIGFs+eHZ3K5OCIr68kDl/UvmLIS5HTCjfox6bji7T+jqWhc2EzZVOR
+0WMslqmlEEmGo18wXTAOBgNVHQ8BAf8EBAMCAaYwDwYDVR0lBAgwBgYEVR0lADAP
+BgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCAHZLQntT4fhV8zVn9zVgB2pcuGA6XN
+wVpU4kUWfzfL0jAKBggqhkjOPQQDAgNHADBEAiBui7rU5qqJqRBuQO0DuLhOOoOn
+GzEwaHWoHrnXLbnDCwIgFjxf+Mm0xrxEh5Yri4HrTClZo4UBa0DhwZRjUusVGHY=
+-----END CERTIFICATE-----
+
+], verify=false
+[32minfo[39m: [FabricCAClientImpl.js]: Successfully constructed Fabric CA service client: endpoint - %j protocol=https, hostname=localhost, port=8054
+[34mdebug[39m: id admin2 secret adminpw2
+[34mdebug[39m: msp_id Org1MSP
+[32minfo[39m: [crypto_ecdsa_aes]: This class requires a CryptoKeyStore to save keys, using the store: {"opts":{"path":"/home/bcuser/.hfc-key-store"}}
+[32minfo[39m: [fcw] Successfully enrolled user 'admin2'
+[32minfo[39m: [crypto_ecdsa_aes]: This class requires a CryptoKeyStore to save keys, using the store: {"opts":{"path":"/home/bcuser/.hfc-key-store"}}
+[32minfo[39m: [Peer.js]: Peer.const - url: grpcs://localhost:9051 options  grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com
+[34mdebug[39m: added peer grpcs://localhost:9051
+[32minfo[39m: [Peer.js]: Peer.const - url: grpcs://localhost:9051 options  grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com
+[34mdebug[39m: [fcw] Successfully got enrollment marbles--aida-peer0.marblesinc.com
+[34mdebug[39m: Setup Marbles Lib...
+[32minfo[39m: [fcw] Going to enroll for mspId  peer_urls=[grpcs://localhost:9051], channel_id=aida, uuid=marbles--aida-peer0.marblesinc.com, ca_url=https://localhost:8054, orderer_url=grpcs://localhost:7050, enroll_id=admin2, enroll_secret=adminpw2, msp_id=Org1MSP
+[34mdebug[39m: Checking if chaincode is already deployed or not
+
+[32minfo[39m: Checking for chaincode...
+[34mdebug[39m: [fcw] Querying Chaincode: read()
+[34mdebug[39m: [fcw] Sending query req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=read, args=[selftest], txId=dfc2b54d0cbeccb672ce5542ac1732c72559ac2b139f556d78ab5509e5039948
+[32minfo[39m: [crypto_ecdsa_aes]: This class requires a CryptoKeyStore to save keys, using the store: {"opts":{"path":"/home/bcuser/.hfc-key-store"}}
+[32minfo[39m: [Client.js]: Successfully loaded user "admin2" from local key value store
+[32minfo[39m: [fcw] Successfully loaded member from persistence
+[32minfo[39m: [Peer.js]: Peer.const - url: grpcs://localhost:9051 options  grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com
+[34mdebug[39m: added peer grpcs://localhost:9051
+[32minfo[39m: [Peer.js]: Peer.const - url: grpcs://localhost:9051 options  grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com
+[34mdebug[39m: [fcw] Successfully got enrollment marbles--aida-peer0.marblesinc.com
+[34mdebug[39m: [fcw] Peer 0 len 1
+[34mdebug[39m: [fcw] Peer 0 type number
+[34mdebug[39m: [fcw] Successful query transaction.
+
+----------------------------- Chaincode Found on Channel aida -----------------------------
+
+
+[32minfo[39m: Checking chaincode and ui compatibility...
+[34mdebug[39m: [fcw] Querying Chaincode: read()
+[34mdebug[39m: [fcw] Sending query req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=read, args=[marbles_ui], txId=8e8b7d8f0154c90c512323d4b374ec7d15629cc8f310643fb7b51f39ce62d91c
+[34mdebug[39m: [fcw] Peer 0 len 5
+[33mwarn[39m: [fcw] warning - query resp is not json, might be okay. string 3.5.0
+[34mdebug[39m: [fcw] Successful query transaction.
+[34mdebug[39m: [ws] broadcasting to clients.  1 app_state
+[32minfo[39m: Creating marble owners and marbles
+[34mdebug[39m: - creating marble owner:  cliff
+
+[32minfo[39m: Creating a marble owner...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_owner()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_owner, args=[o01508869939399DdWtC, cliff, Marbles Inc], txId=22d778d56c2be959ffd3471bcf92f96e6cc2738ce3cf53fd086349f6a0ed698b, 0=188, 1=127, 2=149, 3=15, 4=11, 5=83, 6=69, 7=189, 8=50, 9=254, 10=233, 11=214, 12=70, 13=106, 14=65, 15=180, 16=57, 17=98, 18=186, 19=155, 20=1, 21=241, 22=29, 23=100
+[34mdebug[39m: [fcw] will not use tx event
+[34mdebug[39m: - creating marble owner:  cody
+
+[32minfo[39m: Creating a marble owner...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_owner()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_owner, args=[o01508869939401xTsG9, cody, Marbles Inc], txId=451e39189007cdc35984e26c35ec3804346d822c75ff9ed1de689e9a4eccce7f, 0=115, 1=242, 2=94, 3=156, 4=63, 5=142, 6=243, 7=165, 8=192, 9=246, 10=105, 11=196, 12=179, 13=131, 14=131, 15=98, 16=170, 17=24, 18=140, 19=185, 20=209, 21=66, 22=240, 23=208
+[34mdebug[39m: [fcw] will not use tx event
+[34mdebug[39m: - creating marble owner:  chuck
+
+[32minfo[39m: Creating a marble owner...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_owner()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_owner, args=[o01508869939403cUEeG, chuck, Marbles Inc], txId=6103be993c34de6957a2cea1c93064cd797164ca600a088d3d72d22e7334988d, 0=221, 1=157, 2=6, 3=226, 4=2, 5=52, 6=125, 7=218, 8=175, 9=140, 10=212, 11=102, 12=20, 13=194, 14=234, 15=142, 16=136, 17=211, 18=241, 19=243, 20=220, 21=112, 22=106, 23=197
+[34mdebug[39m: [fcw] will not use tx event
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[32minfo[39m: finished creating owners, now for marbles
+[34mdebug[39m: prepared marbles obj 9 id=o01508869939399DdWtC, username=cliff, $ref=$[0], $ref=$[0], id=o01508869939401xTsG9, username=cody, $ref=$[3], $ref=$[3], id=o01508869939403cUEeG, username=chuck, $ref=$[6], $ref=$[6]
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=16, owner_id=o01508869939399DdWtC, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942460Nmp4a, red, 16, o01508869939399DdWtC, Marbles Inc], txId=ab5c97c1683db68e1af6696ca1b82665796ce2f3b899d02ab2324f915a54503a, 0=48, 1=57, 2=12, 3=130, 4=239, 5=58, 6=102, 7=136, 8=251, 9=26, 10=164, 11=0, 12=43, 13=38, 14=53, 15=63, 16=124, 17=173, 18=57, 19=28, 20=43, 21=19, 22=232, 23=76
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=16, owner_id=o01508869939399DdWtC, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942461WuXB1, red, 16, o01508869939399DdWtC, Marbles Inc], txId=198e91ae55bf5deddec2e6be7a337b833f2d0a134f2682056d90c4a7da3bf1e4, 0=229, 1=180, 2=167, 3=10, 4=63, 5=38, 6=5, 7=220, 8=210, 9=107, 10=46, 11=182, 12=211, 13=232, 14=161, 15=150, 16=242, 17=150, 18=184, 19=157, 20=82, 21=10, 22=143, 23=109
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=35, owner_id=o01508869939399DdWtC, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942462WR2Et, red, 35, o01508869939399DdWtC, Marbles Inc], txId=e6d53e5b7c8478df66e09d06eb76c627401c2f3d7db0afbe7530e58858eaa5f5, 0=194, 1=59, 2=51, 3=123, 4=168, 5=129, 6=215, 7=156, 8=209, 9=2, 10=146, 11=123, 12=164, 13=119, 14=172, 15=83, 16=134, 17=17, 18=0, 19=65, 20=115, 21=184, 22=98, 23=18
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=16, owner_id=o01508869939401xTsG9, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942462t2gSh, red, 16, o01508869939401xTsG9, Marbles Inc], txId=2317c1ade81481a320141138d03b17e6544c35c2e625e9432e85082d37b9d259, 0=39, 1=179, 2=97, 3=236, 4=72, 5=74, 6=154, 7=168, 8=121, 9=143, 10=42, 11=228, 12=223, 13=7, 14=223, 15=246, 16=58, 17=235, 18=5, 19=85, 20=158, 21=130, 22=184, 23=195
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=16, owner_id=o01508869939401xTsG9, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942463mgXfe, red, 16, o01508869939401xTsG9, Marbles Inc], txId=ae563ed5a3b5cd5b498d8902c9aeb635a15f0166a82681b88c839bf4a3f35791, 0=130, 1=137, 2=91, 3=223, 4=218, 5=92, 6=70, 7=113, 8=110, 9=233, 10=102, 11=253, 12=147, 13=46, 14=69, 15=220, 16=16, 17=15, 18=43, 19=231, 20=168, 21=253, 22=165, 23=194
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=35, owner_id=o01508869939401xTsG9, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942463HcKkU, red, 35, o01508869939401xTsG9, Marbles Inc], txId=788003375fef109fd06cabb8cd35ad67316c2d67bc1e589fab54885a1c25625d, 0=51, 1=183, 2=51, 3=88, 4=141, 5=144, 6=154, 7=110, 8=233, 9=40, 10=39, 11=124, 12=16, 13=183, 14=194, 15=69, 16=24, 17=194, 18=247, 19=198, 20=66, 21=227, 22=182, 23=167
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=35, owner_id=o01508869939403cUEeG, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942464sfPB9, red, 35, o01508869939403cUEeG, Marbles Inc], txId=b2dab06fc6f4597c7d7afe32a7aea3a40bb7575c51317f4fc5878bf504cdb62a, 0=219, 1=58, 2=254, 3=247, 4=44, 5=198, 6=211, 7=18, 8=38, 9=15, 10=252, 11=56, 12=122, 13=19, 14=227, 15=55, 16=63, 17=221, 18=120, 19=107, 20=175, 21=93, 22=9, 23=133
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=16, owner_id=o01508869939403cUEeG, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942465f3pbe, red, 16, o01508869939403cUEeG, Marbles Inc], txId=d734717356535f1a66b16bf15e1a4c894eb0635c44b0584a5eb03c909c54ac4a, 0=78, 1=200, 2=44, 3=163, 4=227, 5=244, 6=11, 7=206, 8=9, 9=123, 10=17, 11=232, 12=192, 13=34, 14=110, 15=218, 16=22, 17=244, 18=130, 19=229, 20=189, 21=199, 22=206, 23=132
+[34mdebug[39m: [fcw] will not use tx event
+
+[34mdebug[39m: [startup] going to create marble: color=red, size=35, owner_id=o01508869939403cUEeG, auth_company=Marbles Inc
+
+[32minfo[39m: Creating a marble...
+[34mdebug[39m: [fcw] Invoking Chaincode: init_marble()
+[34mdebug[39m: [fcw] Sending invoke req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=init_marble, args=[m01508869942466Swhnq, red, 35, o01508869939403cUEeG, Marbles Inc], txId=8ff59a38fd1a3efb0f2447ddc92b5f7cf01d0b20400edba6e80a953d92e8fc33, 0=21, 1=124, 2=254, 3=47, 4=215, 5=191, 6=87, 7=164, 8=156, 9=40, 10=255, 11=147, 12=186, 13=255, 14=111, 15=0, 16=164, 17=250, 18=145, 19=127, 20=218, 21=28, 22=144, 23=184
+[34mdebug[39m: [fcw] will not use tx event
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully obtained transaction endorsement
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: [fcw] Successfully ordered endorsement transaction.
+[34mdebug[39m: - finished creating asset
+
+------------------------------------------ All Done ------------------------------------------
+
+[34mdebug[39m: [ws] broadcasting to clients.  1 app_state
+[34mdebug[39m: hash is ac16a67dd135642324122f7f5b8027ad6cd28333
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[32minfo[39m: New block detected! 12 low=12, high=0, unsigned=true, currentBlockHash=801220100076000590257318207910032074086510076600012860020009043007177012707539043763207400000006108200, previousBlockHash=801220100076000590257318207910032074086510076600012860020009043007177012707539043763207400000006108200
+[34mdebug[39m: [checking] there are new things, sending to all clients
+[34mdebug[39m: [ws] broadcasting to clients.  1 block
+
+[32minfo[39m: Fetching EVERYTHING...
+[34mdebug[39m: [fcw] Querying Chaincode: read_everything()
+[34mdebug[39m: [fcw] Sending query req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=read_everything, args=[], txId=3f510ae607fe4cd690d9aeb1205e7e8c23c561bcf5705f40bddeccd8959405cd
+[34mdebug[39m: [fcw] Peer 0 len 3902
+[34mdebug[39m: [fcw] Peer 0 type object
+[34mdebug[39m: [fcw] Successful query transaction.
+
+[34mdebug[39m: [checking] number of owners: 8
+[34mdebug[39m: [checking] number of marbles: 20
+[34mdebug[39m: [checking] there are new things, sending to all clients
+[34mdebug[39m: [ws] broadcasting to clients.  1 everything
+ 
+-------------------------------- Incoming WS Msg --------------------------------
+[34mdebug[39m: [ws] received ws msg: {"type":"read_everything","v":1}
+[32minfo[39m: [ws] read everything req
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[34mdebug[39m: [checking] on demand req, sending to a client
+
+[32minfo[39m: Fetching EVERYTHING...
+[34mdebug[39m: [fcw] Querying Chaincode: read_everything()
+[34mdebug[39m: [fcw] Sending query req chainId=aida, chaincodeId=marbles, chaincodeVersion=1.0, fcn=read_everything, args=[], txId=4d745ec408803900a54e59ad20082fd57ccf8e68266e449b9124fdcb16422595
+[34mdebug[39m: [fcw] Peer 0 len 3902
+[34mdebug[39m: [fcw] Peer 0 type object
+[34mdebug[39m: [fcw] Successful query transaction.
+
+[34mdebug[39m: [checking] number of owners: 8
+[34mdebug[39m: [checking] number of marbles: 20
+[34mdebug[39m: [checking] same everything as last time
+[34mdebug[39m: [checking] sending to 1 client
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[34mdebug[39m: [ws] closed
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[32minfo[39m: Fetching block height...
+[34mdebug[39m: [fcw] Querying Channel Stats:
+[32minfo[39m: [Chain.js]:  Primary peer was not set, using %s grpc.ssl_target_name_override=peer0.marblesinc.com, grpc.default_authority=peer0.marblesinc.com, grpc.primary_user_agent=grpc-node/1.2.4, _url=grpcs://localhost:9051, addr=localhost:9051, , , _name=null, _roles=[]
+[31merror[39m: [Peer.js]: GRPC client got an error response from the peer "grpcs://localhost:9051". Error: Connect Failed
+    at /home/bcuser/zmarbles/marblesUI/node_modules/grpc/src/node/src/client.js:434:17
+[31merror[39m: [Chain.js]: Chain-sendPeersProposal - Promise is rejected: Error: Connect Failed
+    at /home/bcuser/zmarbles/marblesUI/node_modules/grpc/src/node/src/client.js:434:17
+[31merror[39m: [Chain.js]: Failed Query chain info. Error: Error: Connect Failed
+    at /home/bcuser/zmarbles/marblesUI/node_modules/grpc/src/node/src/client.js:434:17
+[31merror[39m: [fcw] Error in query block object Error: Connect Failed
+    at /home/bcuser/zmarbles/marblesUI/node_modules/grpc/src/node/src/client.js:434:17
+[31merror[39m: [fcw] could not format error

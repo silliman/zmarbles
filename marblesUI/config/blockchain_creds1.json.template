@@ -1,0 +1,54 @@
+{
+    "credentials": {
+        "network_id": "",
+        "orderers": [
+            {
+                "discovery": "grpcs://localhost:7050",
+                "msp_id": "OrdererMSP",
+                "tls_certificate": "cert_1"
+            }
+        ],
+        "cas": [
+            {
+                "api": "https://localhost:7054",
+                "msp_id": "Org0MSP",
+                "users": [
+                    {
+                        "enrollId": "admin",
+                        "enrollSecret": "adminpw"
+                    }
+                ],
+                "tls_certificate": "cert_2"
+            }
+        ],
+        "peers": [
+            {
+                "name": "peer0.unitedmarbles.com",
+                "discovery": "grpcs://localhost:7051",
+                "events": "grpcs://localhost:7053",
+                "msp_id": "Org0MSP",
+                "tls_certificate": "cert_3"
+            }
+        ],
+        "app": {
+            "channel_id": "CHANNEL",
+            "chaincode_id": "marbles",
+            "chaincode_version": "1.0",
+            "block_delay": 1000
+        },
+        "tls_certificates": {
+            "cert_1": {
+                "common_name": "orderer.blockchain.com",
+                "pem": "../../crypto-config/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/tls/ca.crt"
+            },
+            "cert_2": {
+                "common_name": "ca.unitedmarbles.com",
+                "pem": "../../crypto-config/peerOrganizations/unitedmarbles.com/ca/ca.unitedmarbles.com-cert.pem"
+            },
+            "cert_3": {
+                "common_name": "peer0.unitedmarbles.com",
+                "pem": "../../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt"
+            }
+        }
+    }
+}
