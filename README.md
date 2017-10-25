@@ -15,7 +15,7 @@
 
 Simply run `./zmarbles-setup.sh` from within your *zmarbles* directory.  Running this command with no arguments will display some brief help.
 
-There are four positional arguments to the `./zmarbles-setup.sh` script.  The first argument is required and should be either `up` or `down` or `restart`.  This is to indicate what action you want to take against the zmarbles app (and the underlying Hyperledger Fabric network infrastructure that supports it).  **up** and **down** are self-explanatory and **restart** will attempt to bring down the network and reset things before bringing the network back up again.  
+There are four positional arguments to the `./zmarbles-setup.sh` script.  The first argument is required and should be either `up` or `down` or `restart` or `init`.  This is to indicate what action you want to take against the zmarbles app (and the underlying Hyperledger Fabric network infrastructure that supports it).  **up** and **down** are self-explanatory and **restart** will attempt to bring down the network and reset things before bringing the network back up again.  **init** is intended for one-time use and will download Hyperledger Fabric v1.0.3 Docker images and will download the cryptogen and configtxgen v1.0.3 binaries and place them in a directory named *bin* in your current directory. 
 
 The second argument is the name of the channel to create.  It defaults to `mychannel`.  
 
@@ -26,6 +26,8 @@ The fourth argument specifies whether CouchDB will be used for the state databas
 **Note:** Since the arguments are positional, if you want to specify the third or fourth arguments, you will need to specify the preceding arguments even if you just wanted the defaults for them.
 
 ### Examples
+
+`./zmarbles_setup.sh init`  # gets Hyperledger Fabric v1.0.3 Docker images and cryptogen and configtxgen binaries.  
 
 `./zmarbles_setup.sh up`   # start with the default channel name of *mychannel* and do not use CouchDB
 
