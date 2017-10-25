@@ -34,7 +34,7 @@ function printHelp () {
         echo "restart combines 'down' and 'up'" 
         echo "init is intended for one-time use and gets the Hyperledger Fabric v1.0.3 Docker images"
         echo " and also gets the cryptogen and configtxgen binaries and puts them in a directory"
-        echo " named 'bin' in your current directory.  
+        echo " named 'bin' in your current directory."  
         echo ""
 }
 
