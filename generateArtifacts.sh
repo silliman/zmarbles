@@ -40,59 +40,57 @@ function replacePrivateKey () {
 
 ## Generates Org certs using cryptogen tool
 function generateCerts (){
-	CRYPTOGEN=$FABRIC_ROOT/release/$OS_ARCH/bin/cryptogen
+	CRYPTOGEN=bin/cryptogen
 
 	if [ -f "$CRYPTOGEN" ]; then
             echo "Using cryptogen -> $CRYPTOGEN"
+	    echo
+       	    echo "##########################################################"
+	    echo "##### Generate certificates using cryptogen tool #########"
+	    echo "##########################################################"
+	    $CRYPTOGEN generate --config=./crypto-config.yaml
+	    echo
 	else
-	    echo "Building cryptogen"
-	    make -C $FABRIC_ROOT release
+	    echo "cryptogen not found. You may need to run ./zmarbles_setup.sh with the init argument"
 	fi
 
-	echo
-	echo "##########################################################"
-	echo "##### Generate certificates using cryptogen tool #########"
-	echo "##########################################################"
-	$CRYPTOGEN generate --config=./crypto-config.yaml
-	echo
 }
 
 ## Generate orderer genesis block , channel configuration transaction and anchor peer update transactions
 function generateChannelArtifacts() {
 
-	CONFIGTXGEN=$FABRIC_ROOT/release/$OS_ARCH/bin/configtxgen
+	CONFIGTXGEN=bin/configtxgen
 	if [ -f "$CONFIGTXGEN" ]; then
             echo "Using configtxgen -> $CONFIGTXGEN"
+	    echo "##########################################################"
+	    echo "#########  Generating Orderer Genesis block ##############"
+	    echo "##########################################################"
+	    # Note: For some unknown reason (at least for now) the block file can't be
+	    # named orderer.genesis.block or the orderer will fail to launch!
+	    FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
+
+	    echo
+	    echo "#################################################################"
+	    echo "### Generating channel configuration transaction 'channel.tx' ###"
+	    echo "#################################################################"
+	    FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
+
+	    echo
+	    echo "#################################################################"
+	    echo "#######    Generating anchor peer update for Org0MSP   ##########"
+	    echo "#################################################################"
+	    FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org0MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org0MSP
+
+	    echo
+	    echo "#################################################################"
+	    echo "#######    Generating anchor peer update for Org1MSP   ##########"
+	    echo "#################################################################"
+	    FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
+	    echo
 	else
-	    echo "Building configtxgen"
-	    make -C $FABRIC_ROOT release
+	    echo "configtxgen not found. You may need to run ./zmarbles_setup.sh with the init argument"
 	fi
 
-	echo "##########################################################"
-	echo "#########  Generating Orderer Genesis block ##############"
-	echo "##########################################################"
-	# Note: For some unknown reason (at least for now) the block file can't be
-	# named orderer.genesis.block or the orderer will fail to launch!
-	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
-
-	echo
-	echo "#################################################################"
-	echo "### Generating channel configuration transaction 'channel.tx' ###"
-	echo "#################################################################"
-	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
-
-	echo
-	echo "#################################################################"
-	echo "#######    Generating anchor peer update for Org0MSP   ##########"
-	echo "#################################################################"
-	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org0MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org0MSP
-
-	echo
-	echo "#################################################################"
-	echo "#######    Generating anchor peer update for Org1MSP   ##########"
-	echo "#################################################################"
-	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
-	echo
 }
 
 generateCerts

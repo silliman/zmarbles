@@ -20,15 +20,21 @@ COMPOSE_FILE=docker-compose.yaml
 COMPOSE_FILE_COUCH=docker-compose-couch.yaml
 
 function printHelp () {
-	echo "Usage: ./zmarbles_setup.sh <up|down|restart> <\$channel-name> <\$cli_timeout> <couchdb>"
+	echo "Usage: ./zmarbles_setup.sh <up|down|restart|init> <\$channel-name> <\$cli_timeout> <couchdb>"
         echo ""
         echo "The arguments must be in order."
         echo ""
-        echo "up|down|restart is required"
+        echo "up|down|restart|init is required"
         echo ""
         echo "\$channel-name defaults to mychannel"
         echo "\$cli_timeout defaults to 10 seconds"
         echo "couchdb will be used instead of leveldb if couchdb is specified"
+        echo ""
+        echo "up and down are self-explanatory"
+        echo "restart combines 'down' and 'up'  
+        echo "init is intended for one-time use and gets the Hyperledger Fabric v1.0.3 Docker images"
+        echo " and also gets the cryptogen and configtxgen binaries and puts them in a directory"
+        echo " named 'bin' in your current directory.  
         echo ""
 }
 
@@ -116,6 +122,8 @@ elif [ "${UP_DOWN}" == "down" ]; then ## Clear the network
 elif [ "${UP_DOWN}" == "restart" ]; then ## Restart the network
 	networkDown
 	networkUp
+elif [ "${UP_DOWN}" == "init" ]; then ## Restart the network
+	./bootstrap-1.0.3.sh
 else
 	printHelp
 	exit 1
