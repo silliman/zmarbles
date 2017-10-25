@@ -2,7 +2,7 @@
 
 function killMarblesAndParentGulp() {
   PORT=${1}
-  MARBLES=`lsof -i tcp:${PORT} -t`
+  MARBLES=`lsof -i tcp:${PORT} -t | head -1`
 
   if [ "${MARBLES}" = "" ] ; then
     echo "No process found listening on port ${PORT}"

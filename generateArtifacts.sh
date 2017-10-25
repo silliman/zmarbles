@@ -12,8 +12,6 @@ CHANNEL_NAME=$1
 : ${CHANNEL_NAME:="mychannel"}
 
 : ${FABRIC_ROOT:="../git/src/github.com/hyperledger/fabric"}
-#export FABRIC_ROOT=/home/bcuser/git/src/github.com/hyperledger/fabric
-#export FABRIC_CFG_PATH=$PWD
 echo
 
 OS_ARCH=$(echo "$(uname -s|tr '[:upper:]' '[:lower:]'|sed 's/mingw64_nt.*/windows/')-$(uname -m | sed 's/x86_64/amd64/g')" | awk '{print tolower($0)}')
@@ -75,25 +73,25 @@ function generateChannelArtifacts() {
 	echo "##########################################################"
 	# Note: For some unknown reason (at least for now) the block file can't be
 	# named orderer.genesis.block or the orderer will fail to launch!
-	$CONFIGTXGEN -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
+	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
 
 	echo
 	echo "#################################################################"
 	echo "### Generating channel configuration transaction 'channel.tx' ###"
 	echo "#################################################################"
-	$CONFIGTXGEN -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
+	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
 
 	echo
 	echo "#################################################################"
 	echo "#######    Generating anchor peer update for Org0MSP   ##########"
 	echo "#################################################################"
-	$CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org0MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org0MSP
+	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org0MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org0MSP
 
 	echo
 	echo "#################################################################"
 	echo "#######    Generating anchor peer update for Org1MSP   ##########"
 	echo "#################################################################"
-	$CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
+	FABRIC_CFG_PATH=`pwd` $CONFIGTXGEN -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
 	echo
 }
 
