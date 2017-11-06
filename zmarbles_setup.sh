@@ -40,7 +40,7 @@ function printHelp () {
 
 function validateArgs () {
 	if [ -z "${UP_DOWN}" ]; then
-		echo "Option up / down / restart not mentioned"
+		echo "Option up / down / restart / init not mentioned"
 		printHelp
 		exit 1
 	fi
@@ -112,6 +112,33 @@ function networkDown () {
 
 }
 
+function getBinariesAndDockerImages () {
+
+  FABRIC_VERSION="$1"
+  : ${FABRIC_VERSION:="1.1.0-preview"}
+  
+  case "${FABRIC_VERSION}" in
+    1.1.0-preview) 
+      ;;
+    1.0.4) 
+      ;;
+    1.0.3)
+      ;;
+    1.0.2)
+      ;;
+    1.0.1)
+      ;;
+    1.0.0)
+      ;;
+    *) echo "invalid version specified with init argument"
+       printHelp
+       exit 1    
+  esac
+  
+  VERSION=${FABRIC_VERSION} ./bootstrap.sh
+
+}
+        
 validateArgs
 
 #Create the network using docker compose
@@ -123,7 +150,7 @@ elif [ "${UP_DOWN}" == "restart" ]; then ## Restart the network
 	networkDown
 	networkUp
 elif [ "${UP_DOWN}" == "init" ]; then ## Restart the network
-	./bootstrap-1.0.3.sh
+	getBinariesAndDockerImages $2 
 else
 	printHelp
 	exit 1
