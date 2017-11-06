@@ -1,25 +1,47 @@
 # zmarbles
 
-**NOTE:** The assumption is that you have already set up your Linux on IBM Z instance to support Hyperledger Fabric v1.0.0, v1.0.1, v1.0.2 or v1.0.3 and that you have already downloaded or created the Docker images for the release you wish to use, and that these images have the *latest* tag.
+## Prerequisites
+
+The following software components are required in order to run this demo:
+
+1. Docker Community Edition 17.06 or later, or Docker Enterprise Edition 17.06 or later
+
+2. Docker Compose version 1.16 or later
+
+3. NodeJS v6.9.x or v6.10.x or v6.11.x
+
+If you need any of the above prerequisites, see [this publicly available lab](https://github.com/silliman/fabric-lab-IBM-Z/blob/master/lab1.rst) for examples of how to install the above-mentioned prerequisites-  **Section 2** shows how to install Docker and Docker Compose on Ubuntu and **Section 5** shows how to install NodeJS on Ubuntu. 
 
 ## Installation 
 
 1. Navigate to a directory on a file system that has ample free disk space, e.g. 8 GB or more free.  If you have adequate free space on the file system that holds your *$HOME* directory, I recommend working from your *$HOME*,  e.g. `cd $HOME`. 
    **Note**: If you are on a LinuxONE Community Cloud instance, although your file system for your *$HOME* is small, the */data* file system is large and has plenty of space, so, e.g. `cd /data/linux1` would make sense here.  (Create */data/linux1* with `mkdir /data/linux1` if it does not already exist).
 
-2. `git clone https://github.com/silliman/zmarbles.git`
+2. An automation toolkit named *gulp* is used to start the Marbles Web UI.  Install this with the following command:
 
-3. `cd zmarbles`
+   `npm install -g gulp`
+
+3. `git clone https://github.com/silliman/zmarbles.git`
+
+4. `cd zmarbles`
+
+## One-time setup (optional)
+
+This application uses Docker Compose files that call for Hyperledger Fabric Docker images with the *latest* tag.  It also expects to find the *cryptogen* and *configtxgen* binaries in a directory named *bin* under the *zmarbles* directory. The *init* argument to the *zmarbles_setup.sh* can be used to retrieve these Docker images and the binaries.  If you already have the Docker images and the binaries, you can skip this step. (But you would still need to create the *bin* directory under *zmarbles* and copy the *cryptogen* and *configtxgen* binaries into it).   Otherwise, execute the script as follows:
+
+`./zmarbles_setup.sh init [1.0.0|1.0.1|1.0.2|1.0.3|1.0.4|1.1.0-preview]`
+
+If you specify the *init* argument without an additional argument, the Docker images and binaries for Hyperledger Fabric v1.1.0-preview will be downloaded.  You can use the second argument to specify version 1.0.0, 1.0.1, 1.0.2, 1.0.3 or 1.0.4 of Hyperledger Fabric instead.
 
 ## Running the application
 
-Simply run `./zmarbles-setup.sh` from within your *zmarbles* directory.  Running this command with no arguments will display some brief help.
+Simply run `./zmarbles_setup.sh` from within your *zmarbles* directory.  Running this command with no arguments will display some brief help.
 
-There are four positional arguments to the `./zmarbles-setup.sh` script.  The first argument is required and should be either `up` or `down` or `restart` or `init`.  This is to indicate what action you want to take against the zmarbles app (and the underlying Hyperledger Fabric network infrastructure that supports it).  **up** and **down** are self-explanatory and **restart** will attempt to bring down the network and reset things before bringing the network back up again.  **init** is intended for one-time use and will download Hyperledger Fabric v1.0.3 Docker images and will download the cryptogen and configtxgen v1.0.3 binaries and place them in a directory named *bin* in your current directory. 
+There are four positional arguments to the `./zmarbles_setup.sh` script.  The first argument is required and should be either `up` or `down` or `restart` or `init`.  This is to indicate what action you want to take against the zmarbles app (and the underlying Hyperledger Fabric network infrastructure that supports it).  **up** and **down** are self-explanatory and **restart** will attempt to bring down the network and reset things before bringing the network back up again.  **init** is intended for one-time use and will download Hyperledger Fabric Docker images and will download the cryptogen and configtxgen binaries and place them in a directory named *bin* in your current directory. You can use the *init* argument to retrieve the Docker images and binaries for several releases of Hyperledger Fabric - v1.0.0, v1.0.1 v1.0.2, v1.0.3, v1.0.4 or v1.1.0-preview.
 
-The second argument is the name of the channel to create.  It defaults to `mychannel`.  
+The second argument is the name of the channel to create, if the first argument is *up*, *down* or *restart*.  It defaults to `mychannel`.  If the first argument is *init*, the second argument is optional and must be either *1.0.0*, *1.0.1*, *1.0.2*, *1.0.3, *1.0.4* or *1.1.0-preview*.  *1.1.0-preview* is the default.
 
-The third argument is a positive integer that specifies the number of seconds that the **cli** Docker container will remain active after the completion of the Hyperledger Fabric cli commands that set up the Hyperledger Fabric network and the marbles chaincode.  The default is 10 seconds. A larger value could be specified for debugging purposes if something goes wrong, since it would be convenient to have the cli Docker container stay active. But in most cases the default value is sufficient.
+The third argument is a positive integer that specifies the number of seconds that the **cli** Docker container will remain active after the completion of the Hyperledger Fabric cli commands that set up tzzhe Hyperledger Fabric network and the marbles chaincode.  The default is 10 seconds. A larger value could be specified for debugging purposes if something goes wrong, since it would be convenient to have the cli Docker container stay active. But in most cases the default value is sufficient.
 
 The fourth argument specifies whether CouchDB will be used for the state database.  If this argument is not specified or is any value other than **couchdb** (lowercase), then CouchDB will not be used for the state database.  Instead, **levelDB**, which is the default database provider, will be used. 
 
@@ -27,7 +49,7 @@ The fourth argument specifies whether CouchDB will be used for the state databas
 
 ### Examples
 
-`./zmarbles_setup.sh init`  # gets Hyperledger Fabric v1.0.3 Docker images and cryptogen and configtxgen binaries.  
+`./zmarbles_setup.sh init`  # gets Hyperledger Fabric v1.1.0-preview Docker images and cryptogen and configtxgen binaries.  
 
 `./zmarbles_setup.sh up`   # start with the default channel name of *mychannel* and do not use CouchDB
 
